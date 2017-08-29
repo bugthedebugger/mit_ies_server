@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IoT Script Uploader</title>
+</head>
+
+<style type="text/css">
+	#element{
+		padding: 10px;
+	}
+	#button{
+		margin-left: 20px;
+		padding: 10px;
+	}
+</style>
+
+<body>
+
+<form method="POST" action="/upload" enctype="multipart/form-data">
+	<div>
+		<div id='element'>
+			<label>Name: </label>
+			<select name='user'>
+				<option value="">Select Name</option>
+				{% for key in keys: %}
+					<option value="{{ users[key] }}">{{ key }}</option>
+				{% endfor %}
+			</select>
+			<br/>
+		</div>
+		<div id='element'>
+			<label>Select Python File to upload: </label>
+			<input type="file" name="file">
+		</div>
+		<br/>
+
+		<div id='button'>
+			<input type="submit">
+		</div>
+	</div> 
+</form>
+
+</body>
+</html>
